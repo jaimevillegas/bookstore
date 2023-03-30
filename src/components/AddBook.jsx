@@ -1,4 +1,4 @@
-/* eslint-disable react/prop-types */
+import PropTypes from 'prop-types';
 import { useState } from 'react';
 
 export default function AddBook({ bookList, setBookList }) {
@@ -21,3 +21,13 @@ export default function AddBook({ bookList, setBookList }) {
     </form>
   );
 }
+
+AddBook.propTypes = {
+  bookList: PropTypes.arrayOf(PropTypes.shape({
+    id: PropTypes.number.isRequired,
+    title: PropTypes.string.isRequired,
+    author: PropTypes.string.isRequired,
+  })).isRequired,
+
+  setBookList: PropTypes.func.isRequired,
+};
