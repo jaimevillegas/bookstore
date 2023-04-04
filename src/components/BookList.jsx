@@ -1,28 +1,17 @@
-import { useState } from 'react';
+import { useSelector } from 'react-redux';
 import AddBook from './AddBook';
 import Book from './Book';
 
 export default function BookList() {
-  const [bookList, setBookList] = useState([
-    {
-      id: 0,
-      title: '1984',
-      author: 'George Orwell',
-    },
-    {
-      id: 1,
-      title: 'Atomic Habits',
-      author: 'James Clear',
-    },
-  ]);
+  const bookList = useSelector((state) => state.booklist.value);
 
   return (
     <section className="books-container-section">
       {bookList.map((book) => (
-        <Book key={book.id} title={book.title} author={book.author} />
+        <Book key={book.id} title={book.title} author={book.author} id={book.id} />
       ))}
 
-      <AddBook bookList={bookList} setBookList={setBookList} />
+      <AddBook />
     </section>
   );
 }

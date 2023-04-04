@@ -1,14 +1,17 @@
-import PropTypes from 'prop-types';
 import { useState } from 'react';
+import { v4 as uuid } from 'uuid';
+import { useDispatch } from 'react-redux';
+import { addBook } from '../redux/books/booksSlice';
 
-export default function AddBook({ bookList, setBookList }) {
+export default function AddBook() {
   const [title, setTitle] = useState('');
   const [author, setAuthor] = useState('');
+  const dispatch = useDispatch();
 
   const submitBook = (e) => {
     e.preventDefault();
-    const id = bookList.length;
-    setBookList([...bookList, { id, title, author }]);
+    const id = uuid();
+    dispatch(addBook({ title, author, id }));
     setTitle('');
     setAuthor('');
   };
@@ -21,13 +24,3 @@ export default function AddBook({ bookList, setBookList }) {
     </form>
   );
 }
-
-AddBook.propTypes = {
-  bookList: PropTypes.arrayOf(PropTypes.shape({
-    id: PropTypes.number.isRequired,
-    title: PropTypes.string.isRequired,
-    author: PropTypes.string.isRequired,
-  })).isRequired,
-
-  setBookList: PropTypes.func.isRequired,
-};
