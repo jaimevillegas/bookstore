@@ -8,10 +8,9 @@ export default function AddBook() {
   const [author, setAuthor] = useState('');
   const dispatch = useDispatch();
 
+  const id = uuid();
   const submitBook = (e) => {
     e.preventDefault();
-    const id = uuid();
-    dispatch(addBook({ title, author, id }));
     setTitle('');
     setAuthor('');
   };
@@ -20,7 +19,7 @@ export default function AddBook() {
     <form action="" onSubmit={(e) => submitBook(e)}>
       <input type="text" placeholder="Title" value={title} onChange={(e) => setTitle(e.target.value)} required />
       <input type="text" placeholder="Author" value={author} onChange={(e) => setAuthor(e.target.value)} required />
-      <button type="submit">Add book</button>
+      <button type="submit" onClick={() => dispatch(addBook({ title, author, id }))}>Add book</button>
     </form>
   );
 }
