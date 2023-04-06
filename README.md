@@ -140,8 +140,6 @@ npm run build
 ## 🔭 Future Features <a name="future-features"></a>
 
 - Add Styling.
-- Add states with Redux.
-- Complete the functionality.
 - Add tests.
 - Deploy the page.
 
