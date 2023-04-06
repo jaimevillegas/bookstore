@@ -10,7 +10,7 @@ export default function NavigationHeader() {
             <span className="nav-link"><NavLink to="/">BOOKS</NavLink></span>
             <span className="nav-link"><NavLink to="/categories">CATEGORIES</NavLink></span>
           </div>
-          <div className="user-icon">USER</div>
+          <div className="user-icon"><i className="fa-solid fa-user"> </i></div>
         </div>
       </nav>
     </header>

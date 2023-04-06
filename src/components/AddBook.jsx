@@ -28,10 +28,13 @@ export default function AddBook() {
   };
 
   return (
-    <form action="">
-      <input type="text" placeholder="Title" value={title} onChange={(e) => setTitle(e.target.value)} required />
-      <input type="text" placeholder="Author" value={author} onChange={(e) => setAuthor(e.target.value)} required />
-      <button type="submit" onClick={(e) => submitBook(e)}>Add book</button>
-    </form>
+    <div className="add-book-container">
+      <h2>ADD NEW BOOK</h2>
+      <form action="">
+        <input type="text" placeholder="Title" value={title} onChange={(e) => setTitle(e.target.value)} required />
+        <input type="text" placeholder="Author" value={author} onChange={(e) => setAuthor(e.target.value)} required />
+        <button type="submit" onClick={(e) => submitBook(e)}>Add book</button>
+      </form>
+    </div>
   );
 }
