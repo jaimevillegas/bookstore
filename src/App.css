@@ -1,4 +1,8 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,300;0,400;0,500;0,700;1,100;1,300;1,400;1,500;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,300;0,400;0,500;0,700;1,100;1,300;1,400;1,500;1,700&family=Roboto+Slab:wght@300;400;500;600;700&display=swap');
+
+::placeholder {
+  color: #c4c4c4;
+}
 
 * {
   margin: 0;
@@ -20,8 +24,6 @@ body {
 .App {
   width: 80%;
   margin: 100px auto;
-
-  /* padding: 0 0 49.625rem; */
   border-radius: 4px;
   box-shadow: 0 0 60px 0 rgba(0, 0, 0, 0.05);
   background-color: var(--z);
@@ -29,8 +31,8 @@ body {
 }
 
 .nav-header {
-  margin: 0 0 2.375rem;
-  padding: 1.438rem 6.188rem 1.688rem 6.25rem;
+  padding: 20px;
+  margin: auto;
   background-color: var(--white-two);
   border-bottom: 2px solid var(--pale-grey);
 }
@@ -38,6 +40,9 @@ body {
 .navbar > div {
   display: flex;
   justify-content: space-between;
+  padding: 0 20px;
+  margin-right: 20px;
+  width: 96%;
 }
 
 .nav-header h1 {
@@ -69,12 +74,13 @@ body {
   line-height: normal;
   letter-spacing: 1.9px;
   color: #757575;
+  opacity: 50%;
   text-decoration: none;
   cursor: pointer;
 }
 
 .nav-link a:hover {
-  color: black;
+  opacity: 100%;
 }
 
 .user-icon {
@@ -88,7 +94,8 @@ body {
 }
 
 .book-container {
-  margin: 30px;
+  width: 90%;
+  margin: 20px auto;
   padding: 1rem;
   border-radius: 4px;
   border: solid 1px #e8e8e8;
@@ -99,18 +106,24 @@ body {
 }
 
 .book-category {
-  color: #494949;
+  color: #121212;
+  opacity: 50%;
+  font-size: 14px;
   font-weight: bold;
 }
 
 .book-title {
-  font-size: 1.5rem;
+  font-size: 22px;
+  font-family: "Roboto Slab", sans-serif;
+  color: #121212;
   font-weight: bold;
 }
 
 .book-author {
-  color: var(--azure);
-  margin-top: 10px;
+  color: #4386bf;
+  font-family: "Roboto Slab", sans-serif;
+  font-size: 14px;
+  font-weight: 300;
 }
 
 .btn-container {
@@ -122,7 +135,10 @@ body {
 .btn-container button {
   border: none;
   background-color: #fff;
-  color: var(--azure);
+  color: #4386bf;
+  font-family: "Roboto Slab", sans-serif;
+  font-size: 14px;
+  font-weight: 300;
 }
 
 .add-book-container button {
@@ -207,13 +223,14 @@ body {
 }
 
 .add-book-container {
-  width: 90%;
+  width: 93%;
   margin: 0 auto;
   padding-bottom: 40px;
 }
 
 .add-book-container h2 {
-  color: gray;
+  color: #888;
+  font-size: 20px;
   margin-bottom: 20px;
 }
 
@@ -223,10 +240,10 @@ body {
 }
 
 .add-book-container input {
-  font-size: 1.5rem;
+  font-size: 16px;
   padding: 5px;
-  border: 1px solid rgb(165, 164, 164);
-  border-radius: 6px;
+  border: solid 1px #e8e8e8;
+  border-radius: 4px;
 }
 
 .categories {
