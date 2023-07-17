@@ -1,25 +1,37 @@
 import { useState } from 'react';
 import { v4 as uuid } from 'uuid';
 import { useDispatch } from 'react-redux';
-import { addBook } from '../redux/books/booksSlice';
+import { addBook, getBookList } from '../redux/getApiData';
 
 export default function AddBook() {
   const [title, setTitle] = useState('');
   const [author, setAuthor] = useState('');
   const dispatch = useDispatch();
+  const URL = 'https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/';
 
-  const id = uuid();
   const submitBook = (e) => {
     e.preventDefault();
+    const itemId = uuid();
+    dispatch(addBook({
+      URL,
+      newBook: {
+        item_id: itemId,
+        title,
+        author,
+        category: '',
+      },
+    })).then(() => {
+      dispatch(getBookList(URL));
+    });
     setTitle('');
     setAuthor('');
   };
 
   return (
-    <form action="" onSubmit={(e) => submitBook(e)}>
+    <form action="">
       <input type="text" placeholder="Title" value={title} onChange={(e) => setTitle(e.target.value)} required />
       <input type="text" placeholder="Author" value={author} onChange={(e) => setAuthor(e.target.value)} required />
-      <button type="submit" onClick={() => dispatch(addBook({ title, author, id }))}>Add book</button>
+      <button type="submit" onClick={(e) => submitBook(e)}>Add book</button>
     </form>
   );
 }
