@@ -4,6 +4,7 @@ import {
 import BookList from './components/BookList';
 import NavigationHeader from './components/NavigationHeader';
 import Categories from './components/Categories';
+import './App.css';
 
 function App() {
   return (

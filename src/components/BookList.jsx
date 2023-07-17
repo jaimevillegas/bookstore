@@ -30,6 +30,8 @@ export default function BookList() {
 
       {books || error}
 
+      <hr className="hr-add-book" />
+
       <AddBook />
     </section>
   );
